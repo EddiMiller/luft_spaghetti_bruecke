@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import Title from './Title/Title';
 import Bottom from './Bottom/Bottom';
 import './App.css';
+import Liste from './Liste'
 
 class App extends Component {
   
@@ -10,10 +10,10 @@ class App extends Component {
   render() {
     return (
     	<div className="App">
-    			<Title></Title>
-          
-          
-          <Bottom></Bottom>
+        <Title>
+          <Liste></Liste>
+        </Title>
+        <Bottom></Bottom>
     	</div>
     );
   }
