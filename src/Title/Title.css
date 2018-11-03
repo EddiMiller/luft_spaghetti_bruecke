@@ -1,0 +1,11 @@
+
+.Title{
+    width: 100%;
+    background-color:rgb(191, 255, 247);
+    border-bottom: 2px solid rgb(83, 157, 253);
+}
+
+.Title-Headline{
+    font-size: 30px;
+    font-weight: bold;
+}
