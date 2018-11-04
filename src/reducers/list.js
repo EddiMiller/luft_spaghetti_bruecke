@@ -12,7 +12,14 @@ function list (state = initialState, action){
     		}
     	}
   	return [].concat(state, [{id:maxId + 1, title: action.title, desc: action.desc}])
-    }
+    };
+    if (action.type === 'LIST_DEL') {
+    	const newState = [...state];
+    	const index = state.findIndex(element => element.id === action.id);
+    	newState.splice(index, 1);
+    	return newState;
+    };
+
     return state;
 }
 

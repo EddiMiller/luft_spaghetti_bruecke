@@ -28,7 +28,8 @@ class Liste extends Component {
 				{this.props.Elements.map( (element, index) => {
 					return (
 						<ListElement 
-							key={element.id} 
+							key={element.id}
+							id={element.id}
 							title={element.title} 
 							desc={element.desc}
 						/>
