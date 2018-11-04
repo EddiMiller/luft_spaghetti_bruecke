@@ -3,3 +3,17 @@
 	border: 3px solid rgb(68, 141, 252);
 	margin: auto;
 }
+
+.ListElement {
+	margin: 5px;
+}
+
+.label-input {
+	text-align: left;
+	font-size: 20px;
+	margin-bottom: 1px;
+}
+
+.align-left {
+	text-align: left;
+}

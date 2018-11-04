@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import './Liste.css';
 import ListElement from './ListElement';
-
+import AddElement from './AddElement';
 import {connect} from 'react-redux';
 
 class Liste extends Component {
+	
 	constructor(props) {
 		super(props);
+		
+		this.state = {
+			showInput: true
+		};
+
+		this.setShowInput = this.setShowInput.bind(this);
 	};
 
+	setShowInput = () => {
+		this.setState({
+			showInput : !this.state.showInput
+		})
+	}
 
 	render() {
 		return (
@@ -22,7 +34,8 @@ class Liste extends Component {
 						/>
 					)})
 				}
-					
+				<button className="btn btn-primary" onClick={this.setShowInput}>Hinzufügen</button>
+				{!this.state.showInput? <AddElement></AddElement> : null}
 			</div>	
 		)
 	}
@@ -34,9 +47,7 @@ let mapStateToProps = function(state) {
 	}
 }
 
-let mapDispatchToProps ={
-
-}
+let mapDispatchToProps = {}
 
 let ListeContainer = connect(mapStateToProps,mapDispatchToProps)(Liste);
 

@@ -2,13 +2,9 @@ import React from 'react';
 
 const ListElement = (props) => {
 	
-	const style = {
-
-		margin: '5px',
-	}
 
 	return (
-		<div className="card" style={style}>
+		<div className="card ListElement">
 			<div className="card-body">
 				<h5 className="card-title">{props.title}</h5>
 				<p className="card-text">{props.desc}</p>
