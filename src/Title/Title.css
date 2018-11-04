@@ -1,8 +1,8 @@
 
 .Title{
     width: 100%;
-    background-color:rgb(191, 255, 247);
-    border-bottom: 2px solid rgb(83, 157, 253);
+    height: 92vh;
+    background-image: url("../media/title-background.png");
 }
 
 .Title-Headline{
