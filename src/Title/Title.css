@@ -1,0 +1,12 @@
+
+.Title{
+    width: 100%;
+    height: 92vh;
+    background-image: url("../media/title-background.png");
+
+}
+
+.Title-Headline{
+    font-size: 30px;
+    font-weight: bold;
+}
