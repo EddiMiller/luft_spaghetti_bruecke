@@ -3,6 +3,7 @@ import './Liste.css';
 import ListElement from './ListElement';
 import AddElement from './AddElement';
 import {connect} from 'react-redux';
+import { delListElement } from '../actions/index_actions';
 
 class Liste extends Component {
 	
@@ -14,7 +15,17 @@ class Liste extends Component {
 		};
 
 		this.setShowInput = this.setShowInput.bind(this);
+		this.deleteListElementHandler = this.deleteListElementHandler.bind(this);
 	};
+
+	deleteListElementHandler = (id) => {
+		this.props.delete(id);
+		console.log('juhu: ' + this.props.Elements.length);
+		if (this.props.Elements.length === 1) {
+			
+			this.setState({showInput: true})
+		}
+	}
 
 	setShowInput = () => {
 		this.setState({
@@ -32,11 +43,12 @@ class Liste extends Component {
 							id={element.id}
 							title={element.title} 
 							desc={element.desc}
+							deleteHander={this.deleteListElementHandler}
 						/>
 					)})
 				}
-				<button className="btn btn-primary" onClick={this.setShowInput}>Hinzufügen</button>
-				{!this.state.showInput? <AddElement></AddElement> : null}
+				{this.props.Elements.length != 0? <button className="btn btn-primary" onClick={this.setShowInput}>Hinzufügen</button> : null}
+				{(!this.state.showInput || this.props.Elements.length === 0)? <AddElement></AddElement> : null}
 			</div>	
 		)
 	}
@@ -48,7 +60,9 @@ let mapStateToProps = function(state) {
 	}
 }
 
-let mapDispatchToProps = {}
+let mapDispatchToProps = {
+	delete: delListElement
+};
 
 let ListeContainer = connect(mapStateToProps,mapDispatchToProps)(Liste);
 
