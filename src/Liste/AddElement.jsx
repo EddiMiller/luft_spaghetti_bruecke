@@ -15,7 +15,6 @@ class AddElement extends Component {
 	}
 
 	onChangedTitleHander = (event) => {
-		console.log('onChangedTitleHander: ' + event.target.value)
 		let title = event.target.value;
 		this.setState({
 			newTitle: title
@@ -38,7 +37,19 @@ class AddElement extends Component {
 			newTitle: "",
 			newDesc: ""
 		})
-	}
+	};
+
+	collapseButton = () => {
+		const button = <button id="collapseButton" className="btn btn-primary" onClick={() => this.props.setShowInput()}>Einklappen</button>
+		if (document.querySelector('#collapseButton')) {
+			document.querySelector('#collapseButton').disabled = false;
+			if ( this.props.Elements.length === 0 ) {
+				document.querySelector('#collapseButton').disabled = true
+			};
+		};
+		return button
+	};
+	
 
 	render() {
 		return (
@@ -68,6 +79,7 @@ class AddElement extends Component {
 						<button
 							className="btn btn-success"
 							onClick={this.onClickHander} >Speichern</button>
+						{this.collapseButton()}
 					</form>
 				</div>
 			</div>
@@ -76,7 +88,9 @@ class AddElement extends Component {
 };
 
 let mapStateToProps = (state) => {
-	return {}
+	return {
+		Elements : state.list
+	}
 };
 
 let mapDispatchToProps = {

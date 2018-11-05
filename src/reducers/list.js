@@ -3,7 +3,7 @@ let initialState = [
     {id: 2, title: 'Test2', desc: 'more Test2'}
 ]
 
-function list (state = initialState, action){
+function list (state = initialState, action) {
     if (action.type === 'LIST_ADD') {
     	let maxId = 0;
     	for (let element of state) {
@@ -13,6 +13,7 @@ function list (state = initialState, action){
     	}
   	return [].concat(state, [{id:maxId + 1, title: action.title, desc: action.desc}])
     };
+
     if (action.type === 'LIST_DEL') {
     	const newState = [...state];
     	const index = state.findIndex(element => element.id === action.id);
