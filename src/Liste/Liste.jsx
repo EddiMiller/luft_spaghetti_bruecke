@@ -11,7 +11,7 @@ class Liste extends Component {
 		super(props);
 		
 		this.state = {
-			showInput: true
+			showInput: false
 		};
 
 		this.setShowInput = this.setShowInput.bind(this);
@@ -20,22 +20,19 @@ class Liste extends Component {
 
 	deleteListElementHandler = (id) => {
 		this.props.delete(id);
-		console.log('juhu: ' + this.props.Elements.length);
-		if (this.props.Elements.length === 1) {
-			
-			this.setState({showInput: true})
-		}
-	}
+	};
 
 	setShowInput = () => {
 		this.setState({
 			showInput : !this.state.showInput
 		})
-	}
+	};
 
 	render() {
 		return (
+
 			<div className="Liste">
+				{(this.props.Elements.length === 0 && this.state.showInput !== true)? this.setState({showInput: true}) : null}
 				{this.props.Elements.map( (element, index) => {
 					return (
 						<ListElement 
@@ -47,8 +44,8 @@ class Liste extends Component {
 						/>
 					)})
 				}
-				{this.props.Elements.length != 0? <button className="btn btn-primary" onClick={this.setShowInput}>Hinzufügen</button> : null}
-				{(!this.state.showInput || this.props.Elements.length === 0)? <AddElement></AddElement> : null}
+				{!this.state.showInput? <button className="btn btn-primary" onClick={this.setShowInput}>Hinzufügen</button> : null}
+				{this.state.showInput? <AddElement setShowInput={this.setShowInput}></AddElement> : null}
 			</div>	
 		)
 	}
