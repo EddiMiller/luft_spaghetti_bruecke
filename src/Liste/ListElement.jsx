@@ -4,7 +4,6 @@ import moment from 'moment';
 
 const ListElement = (props) => {
 	console.log(props);
-	
 	return (
 		<div className="card ListElement">
 			
@@ -17,7 +16,7 @@ const ListElement = (props) => {
 				<p className="card-text">{props.desc}</p>
 			
 				id: {props.id} <br/>
-				<button className="btn btn-danger del-button" onClick={() => props.deleteHander(props.id)}>Löschen</button>
+				<button className="btn btn-danger" onClick={() => props.deleteHander(props.id)}>Löschen</button>
 
 			</div>
 			

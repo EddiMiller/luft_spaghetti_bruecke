@@ -84,7 +84,7 @@ class AddElement extends Component {
 
 	render() {
 		return (
-			<div className="card ListElement">
+			<div className="card AddElement">
 				<div className="card-body">
 					<h5 className="card-title">Füge dein eigenes Event ein.</h5>
 					<form className="align-left">

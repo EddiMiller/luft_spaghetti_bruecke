@@ -1,6 +1,7 @@
 .Liste {
-	width: 70%;
+	max-width: 700px;
 	
+	color: white;
 	border: 3px solid rgb(68, 141, 252);
 	margin-left: auto;
 	margin-right: auto;
@@ -8,9 +9,21 @@
 }
 
 .ListElement {
-	background-color: rgba(240, 236, 236, 0.952);
+	background-color: rgba(27, 27, 27, 0.82);
 
 	margin: 5px;
+
+	animation: moveInBottom 0.5s ease-out;
+	
+}
+
+.AddElement {
+	background-color: rgba(27, 27, 27, 0.82);
+
+	margin: 5px;
+
+
+	animation: moveInAdd 0.4s ease-out;
 }
 
 .label-input {
@@ -23,12 +36,36 @@
 	text-align: left;
 }
 
-.del-button{
-	
-}
 
 .time{
 	position: absolute;
 	left: 2;
 	top: 3;
 }
+
+
+
+@keyframes moveInBottom{
+	0%{
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100%{
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInAdd {
+	0%{
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+
+	100%{
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
