@@ -14,6 +14,7 @@ import { HashRouter, Route } from 'react-router-dom';
 let store = createStore(list);
 
 ReactDOM.render(
+ 
     <Provider store={store}>
         <HashRouter>
             <div>

@@ -26,3 +26,9 @@
 .del-button{
 	
 }
+
+.time{
+	position: absolute;
+	left: 2;
+	top: 3;
+}
