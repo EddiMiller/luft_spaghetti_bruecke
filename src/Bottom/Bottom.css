@@ -1,8 +1,10 @@
 .Bottom{
-    position: absolute;
-    bottom: 0;
-    height: 8%;
+    min-height: 5vh;
     width: 100%;
     border-top: 1px solid grey;
+    color: white;
+
+    background-color: rgb(87, 85, 85);
+    
 }
 
