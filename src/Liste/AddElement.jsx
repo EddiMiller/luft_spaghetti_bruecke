@@ -2,16 +2,42 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { addListElement } from '../actions/index_actions'
 
+
+import TimePicker from 'rc-time-picker';
+import moment from 'moment';
+
+import 'rc-time-picker/assets/index.css';
+
+
+
 class AddElement extends Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {
 			newTitle: "",
-			newDesc: ""
+			newDesc: "",
+			startTime: null,
+			endTime: null
+			
 		};
 		this.onChangedTitleHander = this.onChangedTitleHander.bind(this);
 		this.onClickHander = this.onClickHander.bind(this);
+	}
+
+	handleStartValueChange = (value) => {
+		
+		this.setState({
+			startTime: value
+		});
+	}
+
+	handleEndValueChange = (value) => {
+		console.log(value);
+		this.setState({
+			endTime: value
+		});
+		
 	}
 
 	onChangedTitleHander = (event) => {
@@ -31,11 +57,16 @@ class AddElement extends Component {
 	onClickHander = () => {
 		const title = this.state.newTitle;
 		const desc = this.state.newDesc;
-		this.props.addElement(title, desc);
+		const start = this.state.startTime;
+		const end = this.state.endTime;
+
+		this.props.addElement(title, desc, start, end);
 		
 		this.setState({
 			newTitle: "",
-			newDesc: ""
+			newDesc: "",
+			startTime: null,
+			endTime: null
 		})
 	};
 
@@ -64,22 +95,40 @@ class AddElement extends Component {
 								className="form-control"
 								id="title"
 								onChange={this.onChangedTitleHander}
-								value={this.state.newTitle}/>
+								value={this.state.newTitle}
+								/>
 						</div>
 						<div className="form-group">
 							<label className="label-input" htmlFor="desc">Beschreibung</label>
 							<textarea
-							id="desc"
-							cols="1"
-							rows="4"
-							className="form-control"
-							onChange={this.onChangedDescHander}
-							value={this.state.newDesc}></textarea>
+								id="desc"
+								cols="1"
+								rows="4"
+								className="form-control"
+								onChange={this.onChangedDescHander}
+								value={this.state.newDesc}>
+							</textarea>
+						</div>
+						<div>
+							Startzeit:  
+							<TimePicker 
+								showSecond={false}
+								
+								onChange={this.handleStartValueChange}
+							/>
+							Endzeit:  
+							<TimePicker 
+								showSecond={false}
+								
+								onChange={this.handleEndValueChange}
+							/>
 						</div>
 						<button
 							className="btn btn-success"
-							onClick={this.onClickHander} >Speichern</button>
+							onClick={this.onClickHander} >Speichern
+						</button>
 						{this.collapseButton()}
+						
 					</form>
 				</div>
 			</div>

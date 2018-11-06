@@ -40,6 +40,8 @@ class Liste extends Component {
 							id={element.id}
 							title={element.title} 
 							desc={element.desc}
+							start={element.start}
+							end={element.end}
 							deleteHander={this.deleteListElementHandler}
 						/>
 					)})
